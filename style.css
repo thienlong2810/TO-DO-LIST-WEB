@@ -1,67 +1,126 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-}
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 300px;
-}
-.input-group {
-    display: flex;
-    gap: 5px;
-    margin-bottom: 15px;
-}
-input {
-    flex: 1;
-    padding: 8px;
-}
-button {
-    padding: 8px 12px;
-    background: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-button:hover { background: #218838; }
-ul {
-    list-style: none;
+* {
+    box-sizing: border-box;
+    margin: 0;
     padding: 0;
 }
-li {
-    background: #eee;
-    margin-bottom: 5px;
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.container {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    margin: 0 16px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* Khu vực nhập liệu */
+.input-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
     padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: #28a745;
+}
+
+/* Style chung cho nút bấm */
+button {
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+#add-btn {
+    padding: 10px 16px;
+    background-color: #28a745;
+    font-size: 14px;
+}
+
+#add-btn:hover {
+    background-color: #218838;
+}
+
+/* Danh sách công việc */
+ul {
+    list-style: none;
+}
+
+li {
+    background: #fdfdfd;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    padding: 10px 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
 }
-.delete-btn {
-    background: #dc3545;
-    padding: 5px 8px;
-}
-.delete-btn:hover { background: #c82333; }
-/* Thêm vào cuối file style.css */
-.task-content {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+
+li span {
     flex: 1;
+    word-break: break-word;
+    color: #333333;
+    font-size: 14px;
 }
 
-input[type="checkbox"] {
-    cursor: pointer;
-    width: 18px;
-    height: 18px;
+/* Nhóm các nút hành động (Hoàn thành / Xóa) */
+.actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
 }
 
-/* Hiệu ứng mờ và gạch ngang cho task đã xong */
+.complete-btn {
+    background-color: #007bff;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+.complete-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Trạng thái khi công việc đã xong */
 .completed span {
     text-decoration: line-through;
-    color: #888;
+    color: #888888;
 }
