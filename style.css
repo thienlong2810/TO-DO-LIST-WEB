@@ -46,3 +46,22 @@ li {
     padding: 5px 8px;
 }
 .delete-btn:hover { background: #c82333; }
+/* Thêm vào cuối file style.css */
+.task-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+/* Hiệu ứng mờ và gạch ngang cho task đã xong */
+.completed span {
+    text-decoration: line-through;
+    color: #888;
+}
