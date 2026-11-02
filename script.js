@@ -10,17 +10,18 @@ function renderTasks() {
     todoList.innerHTML = '';
     tasks.forEach((task, index) => {
         const li = document.createElement('li');
-        // Thêm class 'completed' nếu task đã hoàn thành
         if (task.completed) {
             li.classList.add('completed');
         }
         
         li.innerHTML = `
-            <div class="task-content">
-                <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTask(${index})">
-                <span>${task.text}</span>
+            <span>${task.text}</span>
+            <div class="actions">
+                <button class="complete-btn" onclick="toggleTask(${index})">
+                    ${task.completed ? 'Chưa xong' : 'Hoàn thành'}
+                </button>
+                <button class="delete-btn" onclick="deleteTask(${index})">Xóa</button>
             </div>
-            <button class="delete-btn" onclick="deleteTask(${index})">Xóa</button>
         `;
         todoList.appendChild(li);
     });
