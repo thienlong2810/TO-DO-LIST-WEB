@@ -2,7 +2,7 @@ const taskInput = document.getElementById('task-input');
 const addBtn = document.getElementById('add-btn');
 const todoList = document.getElementById('todo-list');
 
-// Lấy data cũ. Nếu data cũ là dạng String thuần, tự động convert sang dạng Object
+// Lấy data và tự động format
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 tasks = tasks.map(task => typeof task === 'string' ? { text: task, completed: false } : task);
 
@@ -14,6 +14,7 @@ function renderTasks() {
             li.classList.add('completed');
         }
         
+        // Code HTML này sẽ tạo ra Cấu trúc: [Tên việc] [Nút Hoàn Thành] [Nút Xóa]
         li.innerHTML = `
             <span>${task.text}</span>
             <div class="actions">
@@ -31,7 +32,6 @@ function addTask() {
     const taskText = taskInput.value.trim();
     if (taskText === '') return;
     
-    // Lưu task mới dưới dạng Object
     tasks.push({ text: taskText, completed: false });
     localStorage.setItem('tasks', JSON.stringify(tasks));
     taskInput.value = '';
@@ -44,7 +44,6 @@ function deleteTask(index) {
     renderTasks();
 }
 
-// Hàm mới: Bật/Tắt trạng thái hoàn thành
 function toggleTask(index) {
     tasks[index].completed = !tasks[index].completed;
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -57,5 +56,5 @@ taskInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') addTask();
 });
 
-// Khởi chạy khi load trang
+// Init
 renderTasks();
